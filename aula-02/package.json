@@ -1,0 +1,12 @@
+{
+  "name": "aula-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Francisco Chaves <contato@franciscochaves.com.br>",
+  "license": "MIT"
+}
