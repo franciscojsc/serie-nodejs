@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header class="bg-dark">
+    <div class="col-100">
+      <h1 class="color-white"><%= title %></h1>
+    </div>
+  </header>
+  <section>
+    <div class="col-30 bg-grey">
+      <form action="/add" method="post">
+        <legend>Incluir nova tarefa</legend>
+        <input type="text" name="title" placeholder="Título">
+        <textarea name="description" id="" cols="30" rows="10" placeholder="Descrição"></textarea>
+        <button type="submit">+ adicionar</button>
+      </form>
+    </div>
+    <div class="col-70" id="content">
+      <table>
+        <tbody>
+          <% for(var i=0; i < tasks.length; i++) { %>
+          <tr>
+            <td>#<%= i+1 %> <strong><%= tasks[i].title %></strong></td>
+            <td class="actions"><a href="/turn/<%= tasks[i]._id %>"
+                class="<%= tasks[i].status ? '': 'color-red'%>"><%= tasks[i].status ? 'ok': 'not ok'%></a></td>
+            <td class="highlight"><%=tasks[i].description %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/javascripts/main.js"></script>
+</body>
+
+</html>
